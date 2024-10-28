@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image.PNG" alt="Desi Dazzle Logo">
+        </div>
+        <h1>MOM'S KITCHEN  BAKERY</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> <!-- Link to the home page -->
+                <li><a href="menu.html">Menu</a></li> <!-- Link to the menu page -->
+                <li><a href="mycart.html" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li> <!-- Current page link -->
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="my-cart">
+        <h2>My Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div id="total-price">
+            Total Price: Rs. 0
+        </div>
+        <form id="order-form" onsubmit="handleOrder(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MOM'S KITCHEN BAKERY. All rights reserved.</p> <!-- Corrected brand name -->
+    </footer>
+
+    <!-- Include your JavaScript files -->
+    <script src="mycart.js"></script> <!-- For cart functionality -->
+    <script src="script.js"></script> <!-- Include any other scripts you need -->
+
+    <script>
+        function handleOrder(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            // Process the order (e.g., send to server or display a confirmation)
+            alert(`Order placed!\nName: ${name}\nAddress: ${address}\nPhone: ${phone}`);
+        }
+    </script>
+</body>
+</html>
+
