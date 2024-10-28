@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MOM'S KITCHEN BAKERY</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <img src="image.PNG" alt="MOM'S KITCHEN BAKERY Logo">
+        </div>
+        <h1>MOM'S KITCHEN BAKERY</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="login-message" style="display: none; color: green;">Login Successful</p> <!-- Success message -->
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Replace these with the actual correct username and password
+            const correctUsername = 'Sowjanya';
+            const correctPassword = 'Himansh';
+            
+            if (username === correctUsername && password === correctPassword) {
+                localStorage.setItem('loggedIn', 'true');
+                document.getElementById('login-message').style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'index.html'; // Redirect to index.html after showing success message
+                }, 2000);
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
+</body>
+</html>
