@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOM'S KITCHEN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image.PNG" alt="MOM'S KITCHEN Logo">
+        </div>
+        <h1>MOM'S KITCHEN BAKERY</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="mycart.html" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <img src="header.jpg" alt="Indian Essence">
+        <div class="banner-text"></div>
+    </section>
+    
+    <button class="shop-now" onclick="scrollToProductOverview()">Shop Now</button>
+
+    <section class="product-overview" id="product-overview">
+        <h2>MENU ITEMS</h2>
+        <div class="filters">
+            <button>Cakes</button>
+            <button>CupCakes</button>
+            <button>Coffee</button>
+            <button>Special Dietary</button>
+            <button>Holiday Treats</button>
+            <button>Birthday Items</button>
+        </div>
+        <div class="menu-category">
+            <div class="product-item">
+                <img src="choclatecake.jpg" alt="Choclate Cake">
+                <h3>Chocolate Cake</h3>
+                <p>Rs. 350</p>
+                <button class="add-to-cart" data-name="Chocolate Cake" data-price="350">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="strawberry cupcake.jpg" alt="Strawberry Cupcake">
+                <h3>Strawberry Cupcake</h3>
+                <p>Rs. 60</p>
+                <button class="add-to-cart" data-name="Strawberry Cupcake" data-price="60">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="cofee1.jpg" alt="Cappuccino Coffee">
+                <h3>Cappuccino Coffee</h3>
+                <p>Rs. 120</p>
+                <button class="add-to-cart" data-name="Cappuccino Coffee" data-price="120">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="bread1.jpg" alt="Gluten Free Breads">
+                <h3>Gluten Free Breads</h3>
+                <p>Rs. 80</p>
+                <button class="add-to-cart" data-name="Gluten Free Breads" data-price="80">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="treats1.jpg" alt="Deepavali Gift Hamper">
+                <h3>Deepavali Gift Hamper</h3>
+                <p>Rs. 1099</p>
+                <button class="add-to-cart" data-name="Deepavali Gift Hamper" data-price="1099">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="items.jpg" alt="Birthday Decor Items">
+                <h3>Birthday Decor Items</h3>
+                <p>Rs. 80</p>
+                <button class="add-to-cart" data-name="Birthday Decor Items" data-price="80">Add to Cart</button>
+            </div>
+        </div>
+        <div id="total-price">
+            Total Price: Rs. 0
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MOM'S KITCHEN. All rights reserved.</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="Product Image">
+            <h3 id="modal-title">Product Title</h3>
+            <p id="modal-price">$0.00</p>
+            <p id="modal-description">This is a great product!</p>
+        </div>
+    </div>
+
+    <div class="message" id="loginMessage" style="display: none;">
+        Please login
+    </div>
+
+    <script>
+        function scrollToProductOverview() {
+            document.getElementById('product-overview').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.onload = function() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            if (!loggedIn) {
+                document.getElementById('loginMessage').style.display = 'block';
+            }
+        };
+
+        function shopNow() {
+            const loggedIn = localStorage.getItem('loggedIn');
+            if (!loggedIn) {
+                document.getElementById('loginMessage').style.display = 'block';
+            } else {
+                scrollToProductOverview();
+            }
+        }
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>
